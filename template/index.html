@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vuetify Parallax Starter</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+  <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
+</head>
+<body>
+ <div id="app">
+   <v-app light>
+    <!-- <v-toolbar class="white">
+      <v-toolbar-title v-text="title"></v-toolbar-title>
+    </v-toolbar> -->
+    <v-content>
+      <section>
+        <v-parallax src="assets/hero.jpeg" height="400">
+          <v-card class="mx-auto">
+          <v-card-text class="headline">
+             <h1 class="text-xs-center">Радиатор Урал</h1>
+          </v-card-text>
+          <v-divider></v-divider>
+          <!-- <v-card-text>
+            <h3 class="text-xs-center"></h3>
+            <h4 class="text-xs-center"></h3>
+          </v-card-text>   -->
+        </v-card>
+        </v-parallax>
+      </section>
+
+      <section>
+        <v-layout
+          column
+          wrap
+          class="my-5"
+          align-center
+        >
+          <v-flex xs12 sm4 class="my-3">
+            <div class="text-xs-center">
+              <h2 class="headline">Специализированный сервис по подбору и поставке авто радиаторов</h2>
+              <span class="subheading">
+                Быстрый и точный подбор. Отправка в регионы
+              </span>
+            </div>
+          </v-flex>
+          <v-flex xs12>
+            <v-container grid-list-xl>
+              <v-layout row wrap align-center text-xs-center>
+                <v-flex xs12 md4>
+                  <v-card class="elevation-0 transparent">
+                    <v-card-text>
+                      <v-icon x-large class="blue--text text--lighten-2">accessibility</v-icon>
+                    </v-card-text>
+                    <v-card-title primary-title class="layout justify-center">
+                      <div class="headline text-xs-center">Индивидуальный подход</div>
+                    </v-card-title>
+                    <v-card-text class="subheading">
+                      Подбор продукции производится грамотными специалистами строго по оригинальным каталогам автопроизводителей, что позволяет более точно узнать совместимость запрашиваемых деталей.
+                    </v-card-text>
+                  </v-card>
+                </v-flex>
+                <v-flex xs12 md4>
+                  <v-card class="elevation-0 transparent">
+                    <v-card-text class="text-xs-center">
+                      <v-icon x-large class="blue--text text--lighten-2">face</v-icon>
+                    </v-card-text>
+                    <v-card-title primary-title class="layout justify-center">
+                      <div class="headline text-xs-center">Помощь при выборе</div>
+                    </v-card-title>
+                    <v-card-text class="subheading">
+                      Работаем в режиме онлайн, поможем выбрать оптимальную стоимость и срок поставки. Достаточно оставить заявку по форме обратной связи, и специалисты свяжутся с вами уже с готовым предложением
+                    </v-card-text>
+                  </v-card>
+                </v-flex>
+                <v-flex xs12 md4>
+                  <v-card class="elevation-0 transparent">
+                    <v-card-text class="text-xs-center">
+                      <v-icon x-large class="blue--text text--lighten-2">shopping_basket</v-icon>
+                    </v-card-text>
+                    <v-card-title primary-title class="layout justify-center">
+                      <div class="headline text-xs-center">Удобный формат обслуживания</div>
+                    </v-card-title>
+                    <v-card-text class="subheading">
+                      Отправка в регионы.При необходимости поможем подобрать и предоставить сопутствующие товары для замены радиатора
+                    </v-card-text>
+                  </v-card>
+                </v-flex>
+              </v-layout>
+            </v-container>
+          </v-flex>
+        </v-layout>
+      </section>
+
+      <section>
+        <v-parallax src="assets/section.jpg">
+          <v-card class="mx-auto">
+              <v-card-text class="headline">
+                 <h1 class="text-xs-center">Сделай заказ прямо сейчас</h1>
+              </v-card-text>
+            </v-card>          
+          <v-container fluid grid-list-md>
+            <v-layout row wrap>             
+              <v-flex xs12 sm4>
+                  <v-text-field
+                  v-model="firstname"
+                  label="Как Вас зовут"
+                  solo
+                  ></v-text-field>
+              </v-flex>
+              <v-flex xs12 sm4>
+                  <v-text-field
+                  v-model="lastname"
+                  label="Телефон"
+                  solo
+                  ></v-text-field>
+              </v-flex>
+              <v-flex xs12 sm4>
+                  <v-text-field
+                  v-model="email"
+                  label="e-mail"
+                  solo
+                ></v-text-field>
+              </v-flex>
+            </v-layout>
+            <v-layout row wrap>             
+                <v-flex xs12 sm3>
+                    <v-text-field
+                    v-model="auto_model"
+                    label="Марка авто"
+                    solo
+                    ></v-text-field>
+                </v-flex>
+                <v-flex xs12 sm3>
+                    <v-text-field
+                    v-model="auto_year"
+                    label="Год выпуска"
+                    solo
+                    ></v-text-field>
+                </v-flex>
+                <v-flex xs12 sm3>
+                    <v-text-field
+                    v-model="auto_vin"
+                    label="Вин номер"
+                    solo
+                  ></v-text-field>
+                </v-flex>
+                <v-flex xs12 sm3>
+                  <v-text-field
+                  v-model="auto_kpp"
+                  label="Тип КПП"
+                  solo
+                  ></v-text-field>
+                  </v-flex>          
+              </v-layout>
+              <v-flex xs12>
+                <v-btn @click="sendEmail" onclick= "">Отправить</v-btn>
+              </v-flex>
+          </v-container>
+        </v-parallax>
+      </section>
+
+      <section>
+        <v-container grid-list-xl>
+          <v-layout row wrap justify-center class="my-5">
+            <v-flex xs12 sm4>
+              <v-card class="elevation-0 transparent">
+                <v-card-title primary-title class="layout justify-center">
+                  <div class="headline">О нас</div>
+                </v-card-title>
+                <v-card-text>
+                Покупаем продаем , кто продает ? мы продаем. Покупаем продаем. Если с бабками облом даем в долг долг долг
+                </v-card-text>
+              </v-card>
+            </v-flex>
+            <v-flex xs12 sm4 offset-sm1>
+              <v-card class="elevation-0 transparent">
+                <v-card-title primary-title class="layout justify-center">
+                  <div class="headline">Контакты</div>
+                </v-card-title>
+                <v-card-text>
+                  Звоните пишите приходите
+                </v-card-text>
+                <v-list class="transparent">
+                  <v-list-tile>
+                    <v-list-tile-action>
+                      <v-icon class="blue--text text--lighten-2">phone</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-content>
+                      <v-list-tile-title>777-867-5309</v-list-tile-title>
+                    </v-list-tile-content>
+                  </v-list-tile>
+                  <v-list-tile>
+                    <v-list-tile-action>
+                      <v-icon class="blue--text text--lighten-2">place</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-content>
+                      <v-list-tile-title>Chicago, US</v-list-tile-title>
+                    </v-list-tile-content>
+                  </v-list-tile>
+                  <v-list-tile>
+                    <v-list-tile-action>
+                      <v-icon class="blue--text text--lighten-2">email</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-content>
+                      <v-list-tile-title>john@vuetifyjs.com</v-list-tile-title>
+                    </v-list-tile-content>
+                  </v-list-tile>
+                </v-list>
+              </v-card>
+            </v-flex>
+          </v-layout>
+        </v-container>
+      </section>
+
+      <v-footer class="blue darken-2">
+        <v-layout row wrap align-center>
+          <v-flex xs12>
+            <!-- <div class="white--text ml-3">
+              Made with
+              <v-icon class="red--text">favorite</v-icon>
+              by <a class="white--text" href="https://vuetifyjs.com" target="_blank">Vuetify</a>
+              and <a class="white--text" href="https://github.com/vwxyzjn">Costa Huang</a>
+            </div> -->
+          </v-flex>
+        </v-layout>
+      </v-footer>
+    </v-content>
+  </v-app>
+ </div>
+ <script src="https://unpkg.com/vue/dist/vue.js"></script>
+ <script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+ <script>
+  // Vue.http.options.emulateJSON = true;   
+   new Vue({
+    el: '#app',
+    data () {
+      return {
+        title: 'Your Logo',
+        firstname: '',
+        lastname: '',
+        email: '',
+        auto_model:'',
+        auto_year:'',
+        auto_vin:'',
+        auto_kpp:'',
+      }
+    },
+    methods: {
+      sendEmail: function (name, email, message) {
+      fetch('/send', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: this.firstname+' '+this.lastname,
+          email: this.email,
+          message: {"model":this.auto_model
+                    ,"year":this.auto_year}
+        })
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          console.log('here is the response: ', res);
+        })
+        .catch((err) => {
+          console.error('here is the error: ', err);
+        })
+      },  
+    },
+    mounted() {
+      const options = {
+  method: 'post',
+  headers: {
+    // 'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+          name: 'this.firstname',
+          email: 'this.email',
+          messages: 'this.auto_model'
+        })
+}
+
+      fetch('/api', options).catch(err => {
+        console.error('Request failed', err)
+      })
+
+      // let options = { emulateJSON: true };
+      // this.$http.post('/', 'sss', {emulateJSON: true},
+      // { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
+      // this.$http.post('/', {name: 'sss'},{
+      //   headers: {
+      //       'Content-Type': 'application/json',
+      //   }
+      // }).then((response) => {
+      //   console.log(response.data);
+      // });  
+    }
+  })
+ </script>
+</body>
+</html>

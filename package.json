@@ -1,0 +1,16 @@
+{
+  "name": "parallax-starter-master",
+  "version": "1.0.0",
+  "description": "> The simplest possible Vue setup in a single HTML file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "nodemailer": "^5.1.1"
+  }
+}
