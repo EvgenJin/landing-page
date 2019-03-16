@@ -12,8 +12,8 @@ app.post('/send',jsonParser, function(req, res, next) {
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'evilwith2@gmail.com',
-      pass: '76Tb45Eu'
+      user: config.mail_addr,
+      pass: config.mail_pass
     }
   })
 
@@ -37,21 +37,13 @@ app.post('/send',jsonParser, function(req, res, next) {
 
 })
 
-
 app.post('/', function (req, res) {
-  // res.send('POST request to the homepage');
   console.log(req.body)
 });
 
 app.post('/api', jsonParser, function (req, res) {
-  // if (!req.body) return res.sendStatus(400)
   console.log(req.body)
-  // create user in req.body
 })
-
-
-
-  
 
 app.listen(config.port,config.host,() => 
   console.log('Socket ready on'+config.host+' port:'+config.port)

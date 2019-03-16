@@ -96,7 +96,7 @@
         <v-parallax src="assets/section.jpg">
           <v-card class="mx-auto">
               <v-card-text class="headline">
-                 <h1 class="text-xs-center">Сделай заказ прямо сейчас</h1>
+                 <h1 class="text-xs-center">Заказ on-line</h1>
               </v-card-text>
             </v-card>          
           <v-container fluid grid-list-md>
@@ -169,7 +169,11 @@
                   <div class="headline">О нас</div>
                 </v-card-title>
                 <v-card-text>
-                Покупаем продаем , кто продает ? мы продаем. Покупаем продаем. Если с бабками облом даем в долг долг долг
+                График работы:
+                В будни : с 10-00 до 20-00 
+                Суббота : с 11-00 до 15-00
+                8 марта: с 10-00 до 18-00
+                9 марта: с 11-00 до 15-00
                 </v-card-text>
               </v-card>
             </v-flex>
@@ -179,7 +183,7 @@
                   <div class="headline">Контакты</div>
                 </v-card-title>
                 <v-card-text>
-                  Звоните пишите приходите
+                  
                 </v-card-text>
                 <v-list class="transparent">
                   <v-list-tile>
@@ -187,7 +191,7 @@
                       <v-icon class="blue--text text--lighten-2">phone</v-icon>
                     </v-list-tile-action>
                     <v-list-tile-content>
-                      <v-list-tile-title>777-867-5309</v-list-tile-title>
+                      <v-list-tile-title>+7(961)777-08-80</v-list-tile-title>
                     </v-list-tile-content>
                   </v-list-tile>
                   <v-list-tile>
@@ -195,7 +199,7 @@
                       <v-icon class="blue--text text--lighten-2">place</v-icon>
                     </v-list-tile-action>
                     <v-list-tile-content>
-                      <v-list-tile-title>Chicago, US</v-list-tile-title>
+                      <v-list-tile-title>Екатеринбург, Сибирский тракт 8д</v-list-tile-title>
                     </v-list-tile-content>
                   </v-list-tile>
                   <v-list-tile>
@@ -203,7 +207,7 @@
                       <v-icon class="blue--text text--lighten-2">email</v-icon>
                     </v-list-tile-action>
                     <v-list-tile-content>
-                      <v-list-tile-title>john@vuetifyjs.com</v-list-tile-title>
+                      <v-list-tile-title>radiatorekat@gmail.com</v-list-tile-title>
                     </v-list-tile-content>
                   </v-list-tile>
                 </v-list>
@@ -258,8 +262,7 @@
         body: JSON.stringify({
           name: this.firstname+' '+this.lastname,
           email: this.email,
-          message: {"model":this.auto_model
-                    ,"year":this.auto_year}
+          message: 'модель: '+ this.auto_model
         })
       })
         .then((res) => res.json())
@@ -272,18 +275,18 @@
       },  
     },
     mounted() {
-      const options = {
-  method: 'post',
-  headers: {
-    // 'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-          name: 'this.firstname',
-          email: 'this.email',
-          messages: 'this.auto_model'
-        })
-}
+            const options = {
+        method: 'post',
+        headers: {
+          // 'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+                name: 'this.firstname',
+                email: 'this.email',
+                messages: 'this.auto_model'
+              })
+      }
 
       fetch('/api', options).catch(err => {
         console.error('Request failed', err)

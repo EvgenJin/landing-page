@@ -1,4 +1,6 @@
 module.exports = {
-  host: 'localhost',
-  port: 7000
+  mail_addr: 'radiatorekat@gmail.com',
+  mail_pass: 'rjyjgkz888',
+  host:'localhost',
+  port:7000
 };
