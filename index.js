@@ -19,7 +19,7 @@ app.post('/send',jsonParser, function(req, res, next) {
 
   const mailOptions = {
     from: `${req.body.email}`,
-    to: 'rumbiroid@gmail.com',
+    to: 'radiatorekat@gmail.com',
     subject: `${req.body.name}`,
     text: `${req.body.message}`,
     // replyTo: `${req.body.email}`

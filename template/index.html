@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Vuetify Parallax Starter</title>
+  <title>Радиатор96</title>
   <meta charset="utf-8">
+  <meta name="description" content="Продажа автомобильных радиаторов в екатеринбурге">
+  <meta name="keywords" content="радиатор, авторадиатор, екатеринубург, купить">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="IQathsXEDvhtbRmJDEPXjSffeJWQ-h6qiUJJET1VI8s" />
   <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
   <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
 </head>
@@ -93,13 +96,13 @@
       </section>
 
       <section>
-        <v-parallax src="assets/section.jpg">
+        <v-parallax src="assets/section.jpg" height='800'>
           <v-card class="mx-auto">
               <v-card-text class="headline">
                  <h1 class="text-xs-center">Заказ on-line</h1>
               </v-card-text>
-            </v-card>          
-          <v-container fluid grid-list-md>
+            </v-card>         
+          <v-container fluid grid-list-xs>
             <v-layout row wrap>             
               <v-flex xs12 sm4>
                   <v-text-field
@@ -153,9 +156,9 @@
                   ></v-text-field>
                   </v-flex>          
               </v-layout>
-              <v-flex xs12>
-                <v-btn @click="sendEmail" onclick= "">Отправить</v-btn>
-              </v-flex>
+              <v-card-actions class="justify-center">
+                <v-btn color="success" @click="sendEmail" onclick= "">Отправить</v-btn>
+              </v-card-actions>
           </v-container>
         </v-parallax>
       </section>
@@ -169,11 +172,11 @@
                   <div class="headline">О нас</div>
                 </v-card-title>
                 <v-card-text>
-                График работы:
-                В будни : с 10-00 до 20-00 
-                Суббота : с 11-00 до 15-00
-                8 марта: с 10-00 до 18-00
-                9 марта: с 11-00 до 15-00
+                <p>График работы:</p>
+                <p>В будни : с 10-00 до 20-00</p>
+                <p>Суббота : с 11-00 до 15-00</p>
+                <p></p>
+                <p></p>
                 </v-card-text>
               </v-card>
             </v-flex>
