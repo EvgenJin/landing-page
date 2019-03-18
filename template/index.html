@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Радиатор96</title>
+  <title>РадиаторЕкб</title>
   <meta charset="utf-8">
   <meta name="description" content="Продажа автомобильных радиаторов в екатеринбурге">
   <meta name="keywords" content="радиатор, авторадиатор, екатеринубург, купить">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="yandex-verification" content="0983efdc2ea15171" />
   <meta name="google-site-verification" content="IQathsXEDvhtbRmJDEPXjSffeJWQ-h6qiUJJET1VI8s" />
   <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
   <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136454115-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-136454115-1');
+  </script>
 </head>
 <body>
  <div id="app">
@@ -113,7 +123,7 @@
               </v-flex>
               <v-flex xs12 sm4>
                   <v-text-field
-                  v-model="lastname"
+                  v-model="telephone"
                   label="Телефон"
                   solo
                   ></v-text-field>
@@ -246,7 +256,7 @@
       return {
         title: 'Your Logo',
         firstname: '',
-        lastname: '',
+        telephone: '',
         email: '',
         auto_model:'',
         auto_year:'',
@@ -263,9 +273,9 @@
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          name: this.firstname+' '+this.lastname,
+          name: this.firstname+' '+this.telephone,
           email: this.email,
-          message: 'модель: '+ this.auto_model
+          message: 'модель: '+ this.auto_model + ';Год: ' + this.auto_year + ';Vin: '+ this.auto_vin + '; КПП: '+ this.auto_kpp + ';Имя: '+this.firstname +';Телефон '+ this.telephone
         })
       })
         .then((res) => res.json())
