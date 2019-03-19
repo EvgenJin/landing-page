@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>РадиаторЕкб</title>
+  <title>РадиаторЕкб</title> 
   <meta charset="utf-8">
   <meta name="description" content="Продажа автомобильных радиаторов в екатеринбурге">
   <meta name="keywords" content="радиатор, авторадиатор, екатеринубург, купить">
@@ -182,9 +182,11 @@
                   <div class="headline">О нас</div>
                 </v-card-title>
                 <v-card-text>
+                <p>ООО «Онико »</p>
+                <p>ИНН 6674235458</p>
                 <p>График работы:</p>
-                <p>В будни : с 10-00 до 20-00</p>
-                <p>Суббота : с 11-00 до 15-00</p>
+                <p>ПН-ПТ : с 10-00 до 20-00</p>
+                <p>СБ : с 11-00 до 15-00</p>
                 <p></p>
                 <p></p>
                 </v-card-text>
@@ -212,15 +214,19 @@
                       <v-icon class="blue--text text--lighten-2">place</v-icon>
                     </v-list-tile-action>
                     <v-list-tile-content>
-                      <v-list-tile-title>Екатеринбург, Сибирский тракт 8д</v-list-tile-title>
+                      <v-list-tile-title>Екатеринбург, Сибирский тракт 8д оф.100/1</v-list-tile-title>
                     </v-list-tile-content>
                   </v-list-tile>
+                  <div>
+                  <script type="application/javascript" charset="utf-8" async="" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=SDtX0GyDxr6oCnSwQfoWRI18PiW3JiOp&amp;width=400&amp;height=300&amp;lang=ru_RU&amp;sourceType=constructor&amp;scroll=true"></script>
+                  
+                  </div>
                   <v-list-tile>
                     <v-list-tile-action>
                       <v-icon class="blue--text text--lighten-2">email</v-icon>
                     </v-list-tile-action>
                     <v-list-tile-content>
-                      <v-list-tile-title>radiatorekat@gmail.com</v-list-tile-title>
+                      <a href="mailto:radiatorekat@gmail.com">radiatorekat@gmail.com</a>
                     </v-list-tile-content>
                   </v-list-tile>
                 </v-list>
@@ -229,7 +235,19 @@
           </v-layout>
         </v-container>
       </section>
-
+      <script type="application/javascript">
+        (function () {
+            var options = {
+                whatsapp: "+79617770880", // WhatsApp number
+                call_to_action: "Написать нам", // Call to action
+                position: "right", // Position may be 'right' or 'left'
+            };
+            var proto = document.location.protocol, host = "whatshelp.io", url = proto + "//static." + host;
+            var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
+            s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
+            var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+        })();
+    </script>
       <v-footer class="blue darken-2">
         <v-layout row wrap align-center>
           <v-flex xs12>
@@ -265,7 +283,18 @@
       }
     },
     methods: {
+      alert_send: function () {
+        alert('Ваше сообщение отправлено');
+        this.firstname = ''
+          this.telephone = ''
+          this.email = ''
+          this.auto_model = ''
+          this.auto_year = ''
+          this.auto_vin = ''
+          this.auto_kpp = ''
+      },
       sendEmail: function (name, email, message) {
+        
       fetch('/send', {
         method: 'POST',
         headers: {
@@ -281,6 +310,7 @@
         .then((res) => res.json())
         .then((res) => {
           console.log('here is the response: ', res);
+          // this.alert_send(res)
         })
         .catch((err) => {
           console.error('here is the error: ', err);
