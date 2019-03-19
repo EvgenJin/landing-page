@@ -106,7 +106,7 @@
       </section>
 
       <section>
-        <v-parallax src="assets/section.jpg" height='800'>
+        <v-parallax src="assets/section.jpg" height='700'>
           <v-card class="mx-auto">
               <v-card-text class="headline">
                  <h1 class="text-xs-center">Заказ on-line</h1>
@@ -116,21 +116,21 @@
             <v-layout row wrap>             
               <v-flex xs12 sm4>
                   <v-text-field
-                  v-model="firstname"
+                  v-model="msg.firstname"
                   label="Как Вас зовут"
                   solo
                   ></v-text-field>
               </v-flex>
               <v-flex xs12 sm4>
                   <v-text-field
-                  v-model="telephone"
+                  v-model="msg.telephone"
                   label="Телефон"
                   solo
                   ></v-text-field>
               </v-flex>
               <v-flex xs12 sm4>
                   <v-text-field
-                  v-model="email"
+                  v-model="msg.email"
                   label="e-mail"
                   solo
                 ></v-text-field>
@@ -139,48 +139,46 @@
             <v-layout row wrap>             
                 <v-flex xs12 sm3>
                     <v-text-field
-                    v-model="auto_model"
+                    v-model="msg.auto_model"
                     label="Марка авто"
                     solo
                     ></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm3>
                     <v-text-field
-                    v-model="auto_year"
+                    v-model="msg.auto_year"
                     label="Год выпуска"
                     solo
                     ></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm3>
                     <v-text-field
-                    v-model="auto_vin"
+                    v-model="msg.auto_vin"
                     label="Вин номер"
                     solo
                   ></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm3>
                   <v-text-field
-                  v-model="auto_kpp"
+                  v-model="msg.auto_kpp"
                   label="Тип КПП"
                   solo
                   ></v-text-field>
                   </v-flex>          
               </v-layout>
               <v-card-actions class="justify-center">
-                <v-btn color="success" @click="sendEmail" onclick= "">Отправить</v-btn>
+                <v-btn color="success" @click="alert_send" onclick= "">Отправить</v-btn>
               </v-card-actions>
           </v-container>
         </v-parallax>
       </section>
 
       <section>
-        <v-container grid-list-xl>
+        <v-container grid-list-xs>
           <v-layout row wrap justify-center class="my-5">
-            <v-flex xs12 sm4>
+            <v-flex xs12 sm6>
               <v-card class="elevation-0 transparent">
-                <v-card-title primary-title class="layout justify-center">
-                  <div class="headline">О нас</div>
-                </v-card-title>
+                <v-card-title class="headline">О нас</v-card-title>
                 <v-card-text>
                 <p>ООО «Онико »</p>
                 <p>ИНН 6674235458</p>
@@ -192,14 +190,9 @@
                 </v-card-text>
               </v-card>
             </v-flex>
-            <v-flex xs12 sm4 offset-sm1>
+            <v-flex xs12 sm6>
               <v-card class="elevation-0 transparent">
-                <v-card-title primary-title class="layout justify-center">
-                  <div class="headline">Контакты</div>
-                </v-card-title>
-                <v-card-text>
-                  
-                </v-card-text>
+              <v-card-title class="headline">Контакты</v-card-title>
                 <v-list class="transparent">
                   <v-list-tile>
                     <v-list-tile-action>
@@ -217,10 +210,7 @@
                       <v-list-tile-title>Екатеринбург, Сибирский тракт 8д оф.100/1</v-list-tile-title>
                     </v-list-tile-content>
                   </v-list-tile>
-                  <div>
-                  <script type="application/javascript" charset="utf-8" async="" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=SDtX0GyDxr6oCnSwQfoWRI18PiW3JiOp&amp;width=400&amp;height=300&amp;lang=ru_RU&amp;sourceType=constructor&amp;scroll=true"></script>
-                  
-                  </div>
+                  <div id='my-map'></div>
                   <v-list-tile>
                     <v-list-tile-action>
                       <v-icon class="blue--text text--lighten-2">email</v-icon>
@@ -248,15 +238,21 @@
             var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
         })();
     </script>
+    <v-snackbar
+        v-model="sb.snackbar"
+        :bottom="sb.y === 'bottom'"
+        :left="sb.x === 'left'"
+        :multi-line="sb.mode === 'multi-line'"
+        :right="sb.x === 'right'"
+        :timeout="sb.timeout"
+        :top="sb.y === 'top'"
+        :vertical="sb.mode === 'vertical'"
+      >
+        {{ sb.text }}
+      </v-snackbar>
       <v-footer class="blue darken-2">
         <v-layout row wrap align-center>
           <v-flex xs12>
-            <!-- <div class="white--text ml-3">
-              Made with
-              <v-icon class="red--text">favorite</v-icon>
-              by <a class="white--text" href="https://vuetifyjs.com" target="_blank">Vuetify</a>
-              and <a class="white--text" href="https://github.com/vwxyzjn">Costa Huang</a>
-            </div> -->
           </v-flex>
         </v-layout>
       </v-footer>
@@ -266,35 +262,39 @@
  <script src="https://unpkg.com/vue/dist/vue.js"></script>
  <script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
- <script>
-  // Vue.http.options.emulateJSON = true;   
+ <script src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A0bdec58273d85529fce025014604031493188711740859c77556acceedb8c442&amp;width=500&amp;height=400&amp;lang=ru_RU&amp;scroll=true&amp;id=my-map"></script>
+ <script>    
    new Vue({
     el: '#app',
     data () {
-      return {
+      return {       
         title: 'Your Logo',
-        firstname: '',
-        telephone: '',
-        email: '',
-        auto_model:'',
-        auto_year:'',
-        auto_vin:'',
-        auto_kpp:'',
+        msg: {
+          firstname: '',
+          telephone: '',
+          email: '',
+          auto_model:'',
+          auto_year:'',
+          auto_vin:'',
+          auto_kpp:'',
+        },
+        sb: { snackbar: false,
+              y: 'top',
+              x: 'right',
+              mode: '',
+              timeout: 1000,
+              text: 'Ваше сообщение отправлено'
+        }
       }
     },
     methods: {
       alert_send: function () {
-        alert('Ваше сообщение отправлено');
-        this.firstname = ''
-          this.telephone = ''
-          this.email = ''
-          this.auto_model = ''
-          this.auto_year = ''
-          this.auto_vin = ''
-          this.auto_kpp = ''
+          this.sb.snackbar = true
+          for(var key in this.msg) {
+            this.msg[key] = ''
+          }
       },
       sendEmail: function (name, email, message) {
-        
       fetch('/send', {
         method: 'POST',
         headers: {
@@ -302,50 +302,21 @@
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          name: this.firstname+' '+this.telephone,
-          email: this.email,
-          message: 'модель: '+ this.auto_model + ';Год: ' + this.auto_year + ';Vin: '+ this.auto_vin + '; КПП: '+ this.auto_kpp + ';Имя: '+this.firstname +';Телефон '+ this.telephone
+          name: this.msg.firstname+' '+this.msg.telephone,
+          email: this.msg.email,
+          message: 'модель: '+ this.msg.auto_model + ';Год: ' + this.msg.auto_year + ';Vin: '+ this.msg.auto_vin + '; КПП: '+ this.msg.auto_kpp + ';Имя: '+this.msg.firstname +';Телефон '+ this.msg.telephone
         })
-      })
-        .then((res) => res.json())
+      }) 
         .then((res) => {
           console.log('here is the response: ', res);
-          // this.alert_send(res)
+          this.alert_send()
         })
         .catch((err) => {
           console.error('here is the error: ', err);
         })
       },  
     },
-    mounted() {
-            const options = {
-        method: 'post',
-        headers: {
-          // 'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-                name: 'this.firstname',
-                email: 'this.email',
-                messages: 'this.auto_model'
-              })
-      }
-
-      fetch('/api', options).catch(err => {
-        console.error('Request failed', err)
-      })
-
-      // let options = { emulateJSON: true };
-      // this.$http.post('/', 'sss', {emulateJSON: true},
-      // { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
-      // this.$http.post('/', {name: 'sss'},{
-      //   headers: {
-      //       'Content-Type': 'application/json',
-      //   }
-      // }).then((response) => {
-      //   console.log(response.data);
-      // });  
-    }
+    mounted() {}
   })
  </script>
 </body>

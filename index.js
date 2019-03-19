@@ -16,7 +16,7 @@ app.post('/send',jsonParser, function(req, res, next) {
       pass: config.mail_pass
     }
   })
-
+  
   const mailOptions = {
     from: `${req.body.email}`,
     to: 'radiatorekat@gmail.com',
@@ -25,25 +25,17 @@ app.post('/send',jsonParser, function(req, res, next) {
     // replyTo: `${req.body.email}`
   }
 
-  console.log(mailOptions)
-
   transporter.sendMail(mailOptions, function(err, res) {
     if (err) {
       console.error('there was an error: ', err);
     } else {
-      console.log('here is the res: ', res)
+      console.log('here is the res: ', res)      
     }
   })
-
+  res.send({ hello: 'world' });
+  
 })
 
-app.post('/', function (req, res) {
-  console.log(req.body)
-});
-
-app.post('/api', jsonParser, function (req, res) {
-  console.log(req.body)
-})
 
 app.listen(config.port,config.host,() => 
   console.log('Socket ready on'+config.host+' port:'+config.port)
