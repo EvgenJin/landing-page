@@ -16,7 +16,7 @@ app.post('/send',jsonParser, function(req, res, next) {
       pass: config.mail_pass
     }
   })
-  
+  // radiatorekat
   const mailOptions = {
     from: `${req.body.email}`,
     to: 'radiatorekat@gmail.com',

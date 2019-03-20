@@ -16,7 +16,6 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'UA-136454115-1');
   </script>
 </head>
@@ -29,26 +28,17 @@
     <v-content>
       <section>
         <v-parallax src="assets/hero.jpeg" height="400">
-          <v-card class="mx-auto">
+          <v-card class="mx-auto elevation-10">
           <v-card-text class="headline">
              <h1 class="text-xs-center">Радиатор Урал</h1>
           </v-card-text>
           <v-divider></v-divider>
-          <!-- <v-card-text>
-            <h3 class="text-xs-center"></h3>
-            <h4 class="text-xs-center"></h3>
-          </v-card-text>   -->
         </v-card>
         </v-parallax>
       </section>
 
       <section>
-        <v-layout
-          column
-          wrap
-          class="my-5"
-          align-center
-        >
+        <v-layout column wrap class="my-5" align-center>
           <v-flex xs12 sm4 class="my-3">
             <div class="text-xs-center">
               <h2 class="headline">Специализированный сервис по подбору и поставке авто радиаторов</h2>
@@ -115,85 +105,55 @@
           <v-container fluid grid-list-xs>
             <v-layout row wrap>             
               <v-flex xs12 sm4>
-                  <v-text-field
-                  v-model="msg.firstname"
-                  label="Как Вас зовут"
-                  solo
-                  ></v-text-field>
+                  <v-text-field v-model="msg.firstname" label="Как Вас зовут" solo></v-text-field>
               </v-flex>
               <v-flex xs12 sm4>
-                  <v-text-field
-                  v-model="msg.telephone"
-                  label="Телефон"
-                  solo
-                  ></v-text-field>
+                  <v-text-field v-model="msg.telephone" label="Телефон" solo></v-text-field>
               </v-flex>
               <v-flex xs12 sm4>
-                  <v-text-field
-                  v-model="msg.email"
-                  label="e-mail"
-                  solo
-                ></v-text-field>
+                  <v-text-field v-model="msg.email" label="e-mail" solo></v-text-field>
               </v-flex>
             </v-layout>
             <v-layout row wrap>             
                 <v-flex xs12 sm3>
-                    <v-text-field
-                    v-model="msg.auto_model"
-                    label="Марка авто"
-                    solo
-                    ></v-text-field>
+                    <v-text-field v-model="msg.auto_model" label="Марка авто" solo></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm3>
-                    <v-text-field
-                    v-model="msg.auto_year"
-                    label="Год выпуска"
-                    solo
-                    ></v-text-field>
+                    <v-text-field v-model="msg.auto_year" label="Год выпуска" solo></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm3>
-                    <v-text-field
-                    v-model="msg.auto_vin"
-                    label="Вин номер"
-                    solo
-                  ></v-text-field>
+                    <v-text-field v-model="msg.auto_vin" label="Вин номер" solo/>
                 </v-flex>
                 <v-flex xs12 sm3>
-                  <v-text-field
-                  v-model="msg.auto_kpp"
-                  label="Тип КПП"
-                  solo
-                  ></v-text-field>
-                  </v-flex>          
+                  <v-text-field v-model="msg.auto_kpp" label="Тип КПП" solo></v-text-field>
+                  </v-flex>
               </v-layout>
               <v-card-actions class="justify-center">
-                <v-btn color="success" @click="alert_send" onclick= "">Отправить</v-btn>
+              <v-btn color="success" @click="sendEmail">Отправить</v-btn>
               </v-card-actions>
           </v-container>
         </v-parallax>
       </section>
 
       <section>
-        <v-container grid-list-xs>
-          <v-layout row wrap justify-center class="my-5">
-            <v-flex xs12 sm6>
-              <v-card class="elevation-0 transparent">
-                <v-card-title class="headline">О нас</v-card-title>
-                <v-card-text>
+        <v-container grid-list-xl>
+          <v-layout row wrap>
+            <v-flex xs12 sm6> 
+              <v-card class="transparent elevation-1">
+                <v-card-text class="text-xs-center headline">О нас</v-card-text>
+                <v-card-text class="text-xs-center">
                 <p>ООО «Онико »</p>
                 <p>ИНН 6674235458</p>
                 <p>График работы:</p>
                 <p>ПН-ПТ : с 10-00 до 20-00</p>
                 <p>СБ : с 11-00 до 15-00</p>
-                <p></p>
-                <p></p>
                 </v-card-text>
               </v-card>
             </v-flex>
             <v-flex xs12 sm6>
-              <v-card class="elevation-0 transparent">
-              <v-card-title class="headline">Контакты</v-card-title>
-                <v-list class="transparent">
+              <v-card light class="transparent elevation-1">
+              <v-card-text class="headline text-xs-center">Контакты</v-card-text>
+                <v-list>
                   <v-list-tile>
                     <v-list-tile-action>
                       <v-icon class="blue--text text--lighten-2">phone</v-icon>
@@ -207,10 +167,10 @@
                       <v-icon class="blue--text text--lighten-2">place</v-icon>
                     </v-list-tile-action>
                     <v-list-tile-content>
-                      <v-list-tile-title>Екатеринбург, Сибирский тракт 8д оф.100/1</v-list-tile-title>
+                      <v-card-title primary-title>Екатеринбург, Сибирский тракт 8д оф.100/1</v-card-title>
                     </v-list-tile-content>
                   </v-list-tile>
-                  <div id='my-map'></div>
+                    <div id='my-map'></div>
                   <v-list-tile>
                     <v-list-tile-action>
                       <v-icon class="blue--text text--lighten-2">email</v-icon>
@@ -228,9 +188,9 @@
       <script type="application/javascript">
         (function () {
             var options = {
-                whatsapp: "+79617770880", // WhatsApp number
-                call_to_action: "Написать нам", // Call to action
-                position: "right", // Position may be 'right' or 'left'
+                whatsapp: "+79617770880", 
+                call_to_action: "Написать нам", 
+                position: "right",
             };
             var proto = document.location.protocol, host = "whatshelp.io", url = proto + "//static." + host;
             var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
@@ -282,7 +242,7 @@
               y: 'top',
               x: 'right',
               mode: '',
-              timeout: 1000,
+              timeout: 50000,
               text: 'Ваше сообщение отправлено'
         }
       }
